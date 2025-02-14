@@ -1,10 +1,16 @@
-import "./App.css";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { LoginPage } from "./features";
+import { AuthProvider } from "./providers/auth";
 
 function App() {
   return (
-    <>
-      <h1 className="text- xl font-black">This is the modification</h1>
-    </>
+    <AuthProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route Component={LoginPage} path="/" />
+        </Routes>
+      </BrowserRouter>
+    </AuthProvider>
   );
 }
 
