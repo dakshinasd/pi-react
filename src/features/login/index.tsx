@@ -43,7 +43,7 @@ function LoginPage() {
     <div className="login-page flex w-full h-screen justify-center items-center">
       <div className="login-container max-w-[400px]">
         {error && (
-          <div className="bg-yellow-500 text-white p-2 mb-5 rounded-sm">
+          <div className="bg-red-400 text-white p-2 mb-5 rounded-sm">
             {error}
           </div>
         )}
