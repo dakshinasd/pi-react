@@ -6,7 +6,7 @@ import {
   useState,
 } from "react";
 
-type User = null | {};
+type User = null | { email: string; userId: string };
 type IsAuthed = boolean;
 
 interface Context {
@@ -18,7 +18,7 @@ interface Context {
 
 const AuthContext = createContext<Context>({
   isAuthed: false,
-  user: {},
+  user: null,
   setUser: () => null,
   setIsAuthed: () => false,
 });

@@ -6,7 +6,7 @@ import AuthContext from "../../providers/auth";
 import { auth } from "../../api";
 
 function LoginPage() {
-  const { isAuthed, setIsAuthed } = useContext(AuthContext);
+  const { isAuthed, setIsAuthed, setUser } = useContext(AuthContext);
   const [formState, setFormState] = useState<{
     username: string;
     password: string;
@@ -21,6 +21,7 @@ function LoginPage() {
 
     if (response) {
       setIsAuthed(true);
+      setUser(response);
       navigate("/dashboard");
     } else {
       setError("Invalid username or password");
