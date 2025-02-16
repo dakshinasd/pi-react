@@ -24,10 +24,10 @@
   }
 
   .btn.btn-full {
-    @apply block text-center py-2 px-2 bg-gray-600 text-white rounded-sm cursor-pointer w-full transition-all;
+    @apply border border-transparent block text-center py-2 px-2 bg-gray-600 text-white rounded-sm cursor-pointer w-full transition-all;
 
     &:hover {
-      @apply bg-yellow-500 text-gray-700;
+      @apply bg-yellow-500 text-gray-700 border-yellow-600;
     }
   }
 }
