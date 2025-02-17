@@ -1,3 +1,5 @@
 import ProtectedRoute from "./ProtectedRoute";
 
-export { ProtectedRoute };
+import Button from "./Button";
+
+export { ProtectedRoute, Button };

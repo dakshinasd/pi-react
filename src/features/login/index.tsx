@@ -1,6 +1,8 @@
 import { ChangeEvent, MouseEvent, useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+import { Button } from "../../components";
+
 import AuthContext from "../../providers/auth";
 
 import { auth } from "../../api";
@@ -75,13 +77,9 @@ function LoginPage() {
           </div>
 
           <div className="form-field">
-            <button
-              type="submit"
-              className="btn btn-full"
-              onClick={handleLogin}
-            >
+            <Button type="submit" onClick={handleLogin}>
               Login
-            </button>
+            </Button>
           </div>
         </form>
       </div>
