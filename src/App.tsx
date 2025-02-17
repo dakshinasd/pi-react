@@ -2,6 +2,8 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import { DashboardPage, LoginPage } from "./features";
 
+import { ProtectedRoute } from "./components/";
+
 import { AuthProvider } from "./providers/auth";
 
 function App() {
@@ -10,7 +12,9 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route Component={LoginPage} path="/" />
-          <Route Component={DashboardPage} path="/dashboard" />
+          <Route Component={ProtectedRoute}>
+            <Route Component={DashboardPage} path="/dashboard" />
+          </Route>
         </Routes>
       </BrowserRouter>
     </AuthProvider>

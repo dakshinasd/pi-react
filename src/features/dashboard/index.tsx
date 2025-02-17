@@ -8,7 +8,7 @@ function DashboardPage() {
   const navigate = useNavigate();
 
   if (!isAuthed) {
-    navigate("/login");
+    navigate("/");
   }
   return (
     <div>
