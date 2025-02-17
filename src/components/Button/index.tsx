@@ -1,7 +1,5 @@
 import { ComponentPropsWithRef, ReactNode } from "react";
 
-import "./style.scss";
-
 interface Props extends ComponentPropsWithRef<"button"> {
   children: ReactNode;
 }
