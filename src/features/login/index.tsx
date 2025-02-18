@@ -1,4 +1,4 @@
-import { ChangeEvent, MouseEvent, useContext, useState } from "react";
+import { ChangeEvent, MouseEvent, use, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { Button } from "../../components";
@@ -8,7 +8,7 @@ import AuthContext from "../../providers/auth";
 import { auth } from "../../api";
 
 function LoginPage() {
-  const { isAuthed, setIsAuthed, setUser } = useContext(AuthContext);
+  const { isAuthed, setIsAuthed, setUser } = use(AuthContext);
   const [formState, setFormState] = useState<{
     username: string;
     password: string;

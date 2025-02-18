@@ -1,10 +1,10 @@
-import { useContext } from "react";
+import { use } from "react";
 import { useNavigate } from "react-router-dom";
 
 import AuthContext from "../../providers/auth";
 
 function DashboardPage() {
-  const { isAuthed, setIsAuthed } = useContext(AuthContext);
+  const { isAuthed, setIsAuthed } = use(AuthContext);
   const navigate = useNavigate();
 
   if (!isAuthed) {
