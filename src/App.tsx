@@ -5,7 +5,7 @@ import { DashboardPage, LoginPage } from "./features";
 import { ProtectedRoute } from "./components/";
 
 import { AuthProvider } from "./providers/auth";
-import { MainLayout } from "./layouts";
+import { AdminLayout, MainLayout } from "./layouts";
 
 function App() {
   return (
@@ -15,7 +15,9 @@ function App() {
           <Route Component={MainLayout}>
             <Route Component={LoginPage} path="/" />
             <Route Component={ProtectedRoute}>
-              <Route Component={DashboardPage} path="/dashboard" />
+              <Route Component={AdminLayout} path="/">
+                <Route Component={DashboardPage} path="/dashboard" />
+              </Route>
             </Route>
           </Route>
         </Routes>
