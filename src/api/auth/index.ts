@@ -18,6 +18,7 @@ async function login(username: string, password: string) {
 
 async function getUserProfile(authToken: string) {
   // TODO: Send proper authToken and verify it on BE
+  await wait(1000);
   if (authToken === "abc") {
     return {
       email: "demo@demo.com",
@@ -28,4 +29,4 @@ async function getUserProfile(authToken: string) {
   }
 }
 
-export default { login };
+export default { login, getUserProfile };
