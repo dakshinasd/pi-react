@@ -7,7 +7,7 @@ import { useProfileCheck } from "../hooks";
 
 import AuthContext from "../providers/auth";
 
-function MainLayout() {
+function RootLayout() {
   const { data, isLoading, getProfile } = useProfileCheck();
   const { setIsAuthed, setUser } = use(AuthContext);
   const navigate = useNavigate();
@@ -41,4 +41,4 @@ function MainLayout() {
   );
 }
 
-export default MainLayout;
+export default RootLayout;

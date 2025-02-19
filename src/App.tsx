@@ -3,16 +3,16 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { DashboardPage, LoginPage } from "./features";
 
 import { ProtectedRoute } from "./components/";
+import { AdminLayout, RootLayout } from "./layouts";
 
 import { AuthProvider } from "./providers/auth";
-import { AdminLayout, MainLayout } from "./layouts";
 
 function App() {
   return (
     <AuthProvider>
       <BrowserRouter>
         <Routes>
-          <Route Component={MainLayout}>
+          <Route Component={RootLayout}>
             <Route Component={LoginPage} path="/" />
             <Route Component={ProtectedRoute}>
               <Route Component={AdminLayout} path="/">

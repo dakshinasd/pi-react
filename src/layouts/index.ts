@@ -1,4 +1,4 @@
-import MainLayout from "./main";
+import RootLayout from "./root";
 import AdminLayout from "./admin";
 
-export { MainLayout, AdminLayout };
+export { RootLayout, AdminLayout };
