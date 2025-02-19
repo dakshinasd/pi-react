@@ -12,7 +12,7 @@ function useProfileCheck() {
   async function getProfile() {
     try {
       setIsLoading(true);
-      const profile = await auth.getUserProfile("");
+      const profile = await auth.getUserProfile("abc");
 
       if (!profile) throw "Something went wrong while fetching profile";
       setData(profile);

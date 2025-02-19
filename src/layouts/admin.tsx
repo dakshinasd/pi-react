@@ -2,7 +2,7 @@ import { Outlet } from "react-router-dom";
 
 function AdminLayout() {
   return (
-    <div className="admin bg-gray-300">
+    <div className="admin min-h-screen">
       <Outlet />
     </div>
   );
