@@ -66,7 +66,7 @@ function LoginPage() {
           </div>
 
           <div className="form-field">
-            <Button type="submit">
+            <Button type="submit" isPending={isSaving}>
               {isSaving ? <>Submitting....</> : <>Login</>}
             </Button>
           </div>

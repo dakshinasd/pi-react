@@ -24,10 +24,19 @@
   }
 
   .btn.btn-full {
-    @apply border border-transparent block text-center py-2 px-2 bg-gray-600 text-white rounded-sm cursor-pointer w-full transition-all;
+    @apply border border-transparent text-center py-2 px-2 bg-gray-600 text-white rounded-sm cursor-pointer w-full transition-all flex justify-center items-center gap-3;
 
     &:hover {
       @apply bg-yellow-500 text-gray-700 border-yellow-600;
+    }
+
+    &.disabled,
+    &:disabled {
+      @apply cursor-not-allowed bg-gray-400 text-gray-100;
+
+      &:hover {
+        @apply border-gray-400 text-gray-100;
+      }
     }
   }
 }
