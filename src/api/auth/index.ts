@@ -1,4 +1,11 @@
+async function wait(time: number) {
+  return new Promise((resolve) => {
+    setTimeout(() => resolve(null), time);
+  });
+}
+
 async function login(username: string, password: string) {
+  await wait(500);
   if (username === "demo" && password === "demo") {
     return {
       email: "demo@demo.com",

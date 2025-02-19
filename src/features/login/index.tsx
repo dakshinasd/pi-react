@@ -1,4 +1,4 @@
-import { ChangeEvent, MouseEvent, use, useState } from "react";
+import { use, useActionState, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { Button } from "../../components";
@@ -9,17 +9,16 @@ import { auth } from "../../api";
 
 function LoginPage() {
   const { isAuthed, setIsAuthed, setUser } = use(AuthContext);
-  const [formState, setFormState] = useState<{
-    username: string;
-    password: string;
-  }>({ username: "", password: "" });
+
   const [error, setError] = useState<null | string>(null);
+  const [_data, action, isSaving] = useActionState(handleUserLogin, undefined);
   const navigate = useNavigate();
 
-  async function handleLogin(e: MouseEvent<HTMLButtonElement>) {
-    setError(null);
-    e.preventDefault();
-    const response = await auth.login(formState.username, formState.password);
+  async function handleUserLogin(_prevState: unknown, formData: FormData) {
+    const username = formData.get("username") as string;
+    const password = formData.get("password") as string;
+
+    const response = await auth.login(username, password);
 
     if (response) {
       setIsAuthed(true);
@@ -28,14 +27,6 @@ function LoginPage() {
     } else {
       setError("Invalid username or password");
     }
-  }
-
-  function handleInputChange(e: ChangeEvent<HTMLInputElement>) {
-    const { value, name } = e.target;
-    setFormState((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
   }
 
   if (isAuthed) {
@@ -50,7 +41,7 @@ function LoginPage() {
             {error}
           </div>
         )}
-        <form action="">
+        <form action={action}>
           <div className="form-field">
             <label className="label label-full" htmlFor="username">
               Username
@@ -59,7 +50,6 @@ function LoginPage() {
               type="text"
               id="username"
               name="username"
-              onChange={(e) => handleInputChange(e)}
               className="input input-full"
             />
           </div>
@@ -71,14 +61,13 @@ function LoginPage() {
               type="password"
               id="password"
               name="password"
-              onChange={(e) => handleInputChange(e)}
               className="input input-full"
             />
           </div>
 
           <div className="form-field">
-            <Button type="submit" onClick={handleLogin}>
-              Login
+            <Button type="submit">
+              {isSaving ? <>Submitting....</> : <>Login</>}
             </Button>
           </div>
         </form>
