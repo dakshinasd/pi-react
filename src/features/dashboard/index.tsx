@@ -4,18 +4,13 @@ import { useNavigate } from "react-router-dom";
 import AuthContext from "../../providers/auth";
 
 function DashboardPage() {
-  const { isAuthed, setIsAuthed } = use(AuthContext);
+  const { isAuthed } = use(AuthContext);
   const navigate = useNavigate();
 
   if (!isAuthed) {
     navigate("/");
   }
-  return (
-    <div>
-      Dashboard
-      <button onClick={() => setIsAuthed(false)}>Logout</button>
-    </div>
-  );
+  return <div>Dashboard</div>;
 }
 
 export default DashboardPage;
